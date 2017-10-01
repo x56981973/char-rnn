@@ -23,7 +23,7 @@ def main():
                         help='size of RNN hidden state')
     parser.add_argument('--num_layers', type=int, default=2,
                         help='number of layers in the RNN')
-    parser.add_argument('--model', type=str, default='rnn',
+    parser.add_argument('--model', type=str, default='lstm',
                         help='rnn, gru, or lstm')
     parser.add_argument('--batch_size', type=int, default=50,
                         help='minibatch size')
@@ -39,9 +39,9 @@ def main():
                         help='learning rate')
     parser.add_argument('--decay_rate', type=float, default=1.0,
                         help='decay rate for rmsprop')
-    parser.add_argument('--output_keep_prob', type=float, default=1.0,
+    parser.add_argument('--output_keep_prob', type=float, default=0.5,
                         help='probability of keeping weights in the hidden layer')
-    parser.add_argument('--input_keep_prob', type=float, default=1.0,
+    parser.add_argument('--input_keep_prob', type=float, default=0.5,
                         help='probability of keeping weights in the input layer')
     parser.add_argument('--init_from', type=str, default=None,
                         help="""continue training from saved model at this path. Path must contain files saved by previous training process:

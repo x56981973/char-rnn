@@ -11,7 +11,7 @@ def main():
     parser.add_argument('-l', type=int,
                         help='length of sample', default=10000)
     parser.add_argument('-r', type=int,
-                        help='repeat time', default=10)
+                        help='repeat time', default=1)
     # parser.add_argument('-list', action='store_true',
     #                     help='list the intersections')
 
@@ -37,7 +37,7 @@ def verify(args):
         p = count / args.l * 100
         average = average + p
 
-    print("Percentage: %.2f%%" % average / args.r)
+    print("Percentage: %.2f%%" % (average / float(args.r)))
 
     # intersection = list(set(input_data).intersection(set(output_data)))
     # print("Total intersections: %d" % len(intersection))

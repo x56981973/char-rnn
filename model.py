@@ -119,7 +119,7 @@ class Model:
         def weighted_pick(weights):
             t = np.cumsum(weights)
             s = np.sum(weights)
-            return (int(np.searchsorted(t, np.random.rand(1) * s)))
+            return int(np.searchsorted(t, np.random.rand(1) * s))
 
         ret = prime
         char = prime[-1]
@@ -144,8 +144,10 @@ class Model:
                     sample = np.argmax(p)
             else:  # sampling_type == 1 default:
                 sample = weighted_pick(p)
-
-            pred = chars[sample]
+            try:
+                pred = chars[sample]
+            except:
+                continue
             ret += pred
             char = pred
             out.write(char)
